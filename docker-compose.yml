@@ -1,0 +1,16 @@
+version: "2"
+services:
+  db:
+    image: mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - ./docker/data/database:/data/db
+    restart: unless-stopped
+  redis:
+    image: redis:5-alpine
+    ports:
+      - "6379:6379"
+    volumes:
+      - .docker/data/redis:/data
+    restart: unless-stopped
